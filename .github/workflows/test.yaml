@@ -1,11 +1,7 @@
-name: release
-on:
-  push:
-    tags:
-    - "v[0-9]+.[0-9]+.[0-9]+"
-    - "v[0-9]+.[0-9]+.[0-9]+-[0-9]+"
+name: renovate-config-validator
+on: pull_request
 jobs:
-  release:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,9 +17,3 @@ jobs:
             aqua-installer
         env:
           COSIGN_EXPERIMENTAL: "1"
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        draft: true
-        with:
-          files: aqua-installer.sig
