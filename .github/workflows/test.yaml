@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3.4.0
       - uses: aquaproj/aqua-installer@a39f721a15ed34ccbc85706e6e8ae8572c9ca9c6 # v1.2.0
         with:
-          aqua_version: v1.37.1
+          aqua_version: v1.37.2
       - run: |
           cosign sign-blob \
             --output-certificate=aqua-installer.pem \
